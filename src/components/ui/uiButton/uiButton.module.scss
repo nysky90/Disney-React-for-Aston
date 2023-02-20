@@ -1,0 +1,38 @@
+.button {
+	padding: 10px 20px;
+	border-radius: 5px;
+	background-color: #ffffff;
+	font-weight: 700;
+	margin: 10px;
+	border: 2px solid;
+	cursor: pointer;
+	&:disabled {
+		&:hover {
+			cursor: auto;
+			background-color: #9c9c9c;
+			border: 2px solid #a7a7a7;
+			color: #696969;
+		}
+	}
+}
+
+.fun {
+	background-color: none;
+	color: #ffa7e5;
+	&:hover {
+		color: #ff50cb;
+		background-color: #ffa7e5;
+		--angle: 0deg;
+		border: 2px solid;
+		border-image: linear-gradient(
+				var(--angle),
+				red,
+				yellow,
+				lime,
+				aqua,
+				blue,
+				magenta
+			)
+			1;
+	}
+}

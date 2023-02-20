@@ -1,15 +1,21 @@
-import Header from '@components/header/Header';
-import CharacterList from '../characterList/CharacterList';
-import s from './app.module.scss';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
+import { Header } from '../../components';
+import { routesConfig } from '../../routes/routesConfig';
 
 function App() {
-  return (
-    <div>
-      <Header/>
-      <CharacterList/>
-    </div>
-  );
+	return (
+		<div>
+			<BrowserRouter>
+				<Header />
+				<Routes>
+					{routesConfig.map((item, i) => (
+						<Route key={i} {...item} />
+					))}
+				</Routes>
+			</BrowserRouter>
+		</div>
+	);
 }
 
-export default App;
+export { App };
