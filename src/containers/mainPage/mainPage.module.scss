@@ -1,0 +1,25 @@
+.main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 600px;
+    &__item {
+        position: relative;
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    &__text {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 55px;
+        color: #ffffff;
+        font-weight: 900;
+        text-align: center;
+        background-color: #00000031;
+        width: 100%;
+    }
+}

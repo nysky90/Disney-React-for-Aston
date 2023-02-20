@@ -1,0 +1,14 @@
+.button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #ffacdc;
+    font-weight: 700;
+    margin: 10px;
+    border: 1px solid;
+    cursor: pointer;
+    &:hover {
+        --angle: 0deg;
+        border: 1px solid;
+        border-image: linear-gradient(var(--angle), red, yellow, lime, aqua, blue, magenta) 1;
+    }
+}
