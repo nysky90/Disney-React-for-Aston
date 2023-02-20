@@ -37,7 +37,7 @@ const CharacterPage = () => {
 
 	useEffect(() => {
 		getResourse(DISNEY_URL + queryPage);
-	}, []);
+	}, [queryPage]);
 
 	return (
 		<>
