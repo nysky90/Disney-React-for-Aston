@@ -19,6 +19,7 @@
 .fun {
 	background-color: none;
 	color: #ffa7e5;
+	transition: 0.4s;
 	&:hover {
 		color: #ff50cb;
 		background-color: #ffa7e5;
@@ -34,5 +35,17 @@
 				magenta
 			)
 			1;
+	}
+}
+
+.boy {
+	background-color: #7aceff;
+	color: #1e6a96;
+	border: 2px solid #1e6a96;
+	transition: 0.4s;
+	&:hover {
+		color: #7aceff;
+		background-color: #1e6a96;
+		border: 2px solid #7aceff;
 	}
 }
