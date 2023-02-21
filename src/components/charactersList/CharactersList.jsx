@@ -1,24 +1,24 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-import s from './characterList.module.scss';
+import s from './charactersList.module.scss';
 
-const CharacterList = ({ characters }) => {
-	console.log(characters);
+const CharactersList = ({ characters }) => {
 	return (
 		<ul className={s.list}>
 			{characters.map(({ name, id, img }) => (
 				<li key={id} className={s.list__item}>
-					<a href='#'>
+					<Link to={`/characters/${id}`}>
 						<img src={img} alt={name} className={s.list__img} />
 						<p className={s.list__text}>{name}</p>
-					</a>
+					</Link>
 				</li>
 			))}
 		</ul>
 	);
 };
 
-CharacterList.propTypes = {
+CharactersList.propTypes = {
 	characters: PropTypes.arrayOf(
 		PropTypes.shape({
 			name: PropTypes.string,
@@ -28,4 +28,4 @@ CharacterList.propTypes = {
 	),
 };
 
-export { CharacterList };
+export { CharactersList };

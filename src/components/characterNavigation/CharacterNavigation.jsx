@@ -19,9 +19,7 @@ const CharacterNavigation = ({
 			<h1 className={s.title}>Character's</h1>
 
 			<div>
-				<Link
-					to={`/characters?page=${counterPage - 1}`}
-					className={s.link}>
+				<Link to={`/characters?page=${counterPage - 1}`} className={s.link}>
 					<UiButton
 						text='Previous'
 						onClick={hancleChangePrev}
@@ -29,9 +27,7 @@ const CharacterNavigation = ({
 					/>
 				</Link>
 
-				<Link
-					to={`/characters?page=${counterPage + 1}`}
-					className={s.link}>
+				<Link to={`/characters?page=${counterPage + 1}`} className={s.link}>
 					<UiButton
 						text='Next'
 						onClick={hancleChangeNext}
