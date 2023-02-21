@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
-import { CharacterList, CharacterNavigation } from '../../components';
+import { useState, useEffect, lazy, Suspense } from 'react';
+
+import { CharacterNavigation, UiSpinner } from '../../components';
 import { useQueryParams } from '../../hooks/useQueryParams';
 import { getApiResourse } from '../../utils/network';
 import { getCharacterPageId } from '../../services/getCharactersData';
 import { DISNEY_URL } from '../../constants/api';
+
+const CharactersList = lazy(() => import('../../components'));
 
 const CharacterPage = () => {
 	const [characters, setCharacters] = useState(null);
@@ -16,7 +19,6 @@ const CharacterPage = () => {
 
 	const getResourse = async (url) => {
 		const result = await getApiResourse(url);
-
 		if (result) {
 			const characterList = result.data.map(({ name, _id, imageUrl }) => {
 				return {
@@ -25,7 +27,6 @@ const CharacterPage = () => {
 					img: imageUrl,
 				};
 			});
-
 			setCharacters(characterList);
 			setNextCharacters(result.nextPage);
 			setPrevCharacters(result.previousPage);
@@ -47,7 +48,11 @@ const CharacterPage = () => {
 				nextCharacters={nextCharacters}
 				counterPage={counterPage}
 			/>
-			{characters && <CharacterList characters={characters} />}
+			{characters && (
+				<Suspense fallback={<UiSpinner />}>
+					<CharactersList characters={characters} />
+				</Suspense>
+			)}
 		</>
 	);
 };

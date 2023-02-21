@@ -1,0 +1,25 @@
+.list {
+	display: flex;
+	flex-direction: column;
+	&__title {
+		margin: 10px 0;
+	}
+	&__item {
+		font-size: 12px;
+		padding: 5px 10px;
+		margin: 5px 0;
+		width: 90%;
+		background-color: #2f8ad4;
+		border-radius: 5px;
+		color: #fff;
+		&_err {
+			background-color: #c05063;
+			font-size: 12px;
+			padding: 5px 10px;
+			margin: 5px 0;
+			width: 90%;
+			border-radius: 5px;
+			color: #fff;
+		}
+	}
+}
