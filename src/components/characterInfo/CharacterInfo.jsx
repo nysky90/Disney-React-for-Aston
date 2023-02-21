@@ -4,8 +4,8 @@ import { ListOfElements } from '../../components';
 
 import s from './characterInfo.module.scss';
 
-const CharacterInfo = ({ charInfo }) => {
-	const { name, imageUrl, films, shortFilms, tvShows, videoGames } = charInfo;
+const CharacterInfo = ({ info }) => {
+	const { name, imageUrl, films, shortFilms, tvShows, videoGames } = info;
 	return (
 		<div className={s.charInfo}>
 			<div className={s.charInfo__img}>

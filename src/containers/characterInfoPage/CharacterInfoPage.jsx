@@ -9,22 +9,22 @@ import { DISNEY_ROOT } from '../../constants/api';
 import s from './characterInfoPage.module.scss';
 
 const CharacterInfoPage = () => {
-	const [charInfo, setCharInfo] = useState(null);
+	const [info, setInfo] = useState(null);
 
 	const { id } = useParams();
 
-	const getCharacterData = async (url) => {
+	const setCharacterData = async (url) => {
 		const result = await getApiResourse(url);
-		setCharInfo(result);
+		setInfo(result);
 	};
 
 	useEffect(() => {
-		getCharacterData(`${DISNEY_ROOT}/${id}`);
+		setCharacterData(`${DISNEY_ROOT}/${id}`);
 	}, [id]);
 	return (
 		<div className={s.infoPage}>
 			<CharacterLinkGoBack />
-			{charInfo && <CharacterInfo charInfo={charInfo} />}
+			{info && <CharacterInfo info={info} />}
 		</div>
 	);
 };

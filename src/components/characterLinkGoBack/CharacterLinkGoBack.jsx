@@ -8,12 +8,11 @@ const CharacterLinkGoBack = () => {
 		e.preventDefault();
 		history(-1);
 	};
+
 	return (
-		<>
-			<button className={s.btn_goBack} onClick={handleGoBack}>
-				Go back
-			</button>
-		</>
+		<button className={s.btn_goBack} onClick={handleGoBack}>
+			Go back
+		</button>
 	);
 };
 
