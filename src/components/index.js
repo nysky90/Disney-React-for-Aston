@@ -1,3 +1,7 @@
+export { RegistrationForm } from './forms/registrationForm/RegistrationForm';
+export { UserBar } from './bar/userBar/UserBar';
+export { TopBar } from './bar/topBar/TopBar.jsx';
+export { LoginForm } from './forms/loginFrom/LoginForm';
 export { UiSpinner } from './ui/uiSpinner/UiSpinner';
 export { CharacterLinkGoBack } from './characterLinkGoBack/CharacterLinkGoBack';
 export { ListOfElements } from './listOfElements/ListOfElements';

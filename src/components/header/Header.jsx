@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
+import { TopBar } from '../bar/topBar/TopBar';
 import logo from './img/logo.png';
 
 import s from './header.module.scss';
@@ -17,8 +18,7 @@ const Header = () => {
 					<NavLink to='/characters?page=1'>
 						<p>All characters</p>
 					</NavLink>
-					<p>Log In</p>
-					<p>Registration</p>
+					<TopBar />
 				</div>
 			</div>
 		</div>
