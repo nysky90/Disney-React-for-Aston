@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { UserBar } from '../userBar/UserBar';
 
 /*
@@ -13,6 +13,7 @@ const TopBar = () => {
 		return localStorage.getItem('isLogged');
 	});
 	const [email, setEmail] = useState();
+	const navigate = useNavigate();
 
 	const checkLogged = () => {
 		if (logged === 'true') {
@@ -28,13 +29,14 @@ const TopBar = () => {
 		localStorage.setItem('isLogged', false);
 		localStorage.setItem('loggedUser', '');
 		setLogged(false);
+		navigate('/');
 	};
 	useEffect(() => {
 		checkLogged();
 	}, [logged]);
 	return (
 		<>
-			{logged === 'true' ? (
+			{logged ? (
 				<UserBar email={email} logoutUser={logoutUser} />
 			) : (
 				<NavLink to='/login'>

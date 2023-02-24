@@ -5,9 +5,7 @@ const UserBar = ({ email, logoutUser }) => {
 	return (
 		<>
 			<p>{email}</p>
-			<Link to={'/'} onClick={logoutUser}>
-				Logout
-			</Link>
+			<Link onClick={logoutUser}>Logout</Link>
 		</>
 	);
 };
