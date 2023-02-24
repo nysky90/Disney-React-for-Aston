@@ -1,4 +1,5 @@
 import {
+	SignIn,
 	SearchPage,
 	MainPage,
 	CharacterInfoPage,
@@ -21,5 +22,13 @@ export const routesConfig = [
 	{
 		path: '/characters/:id',
 		element: <CharacterInfoPage />,
+	},
+	{
+		path: '/login',
+		element: <SignIn />,
+	},
+	{
+		path: '/registration',
+		element: <SignIn />,
 	},
 ];

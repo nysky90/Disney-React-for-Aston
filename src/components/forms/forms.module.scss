@@ -1,0 +1,28 @@
+.form {
+	&__input {
+		width: 80%;
+		padding: 10px 10px;
+		margin: 20px 0;
+		border-radius: 5px;
+	}
+	&__btn {
+		padding: 10px 20px;
+		border-radius: 10px;
+		cursor: pointer;
+		&:hover {
+			background-color: red;
+		}
+	}
+	&__span {
+		font-size: 20px;
+		font-weight: bold;
+		color: #fff;
+		cursor: pointer;
+		&:hover {
+			color: greenyellow;
+		}
+	}
+	&__title {
+		margin-top: 20px;
+	}
+}
