@@ -3,7 +3,13 @@ import cn from 'classnames';
 
 import s from './uiButton.module.scss';
 
-const UiButton = ({ text, onClick, disabled, classes, theme = 'fun' }) => {
+const UiButton = ({
+	text,
+	onClick,
+	disabled = false,
+	classes = null,
+	theme = 'fun',
+}) => {
 	return (
 		<button
 			className={cn(s.button, s[theme], classes)}

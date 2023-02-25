@@ -1,12 +1,10 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 
-import { CharacterNavigation, UiSpinner } from '../../components';
+import { CharacterNavigation, CharactersList } from '../../components';
 import { useQueryParams } from '../../hooks/useQueryParams';
 import { getApiResourse } from '../../utils/network';
 import { getCharacterPageId } from '../../services/getCharactersData';
 import { DISNEY_URL } from '../../constants/api';
-
-const CharactersList = lazy(() => import('../../components'));
 
 const CharacterPage = () => {
 	const [characters, setCharacters] = useState(null);
@@ -48,11 +46,7 @@ const CharacterPage = () => {
 				nextCharacters={nextCharacters}
 				counterPage={counterPage}
 			/>
-			{characters && (
-				<Suspense fallback={<UiSpinner />}>
-					<CharactersList characters={characters} />
-				</Suspense>
-			)}
+			{characters && <CharactersList characters={characters} />}
 		</>
 	);
 };

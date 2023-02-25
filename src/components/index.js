@@ -1,5 +1,6 @@
 export { RegistrationForm } from './forms/registrationForm/RegistrationForm';
 export { UserBar } from './bar/userBar/UserBar';
+export { ErrorApi } from './errorApi/ErrorApi.jsx';
 export { TopBar } from './bar/topBar/TopBar.jsx';
 export { LoginForm } from './forms/loginFrom/LoginForm';
 export { UiSpinner } from './ui/uiSpinner/UiSpinner';
@@ -8,5 +9,5 @@ export { ListOfElements } from './listOfElements/ListOfElements';
 export { CharacterInfo } from './characterInfo/CharacterInfo';
 export { UiButton } from './ui/uiButton/UiButton';
 export { CharacterNavigation } from './characterNavigation/CharacterNavigation';
-export { CharactersList as default } from './charactersList/CharactersList';
+export { CharactersList } from './charactersList/CharactersList';
 export { Header } from './header/Header';

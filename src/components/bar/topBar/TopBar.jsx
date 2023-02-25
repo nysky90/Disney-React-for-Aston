@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { UserBar } from '../userBar/UserBar';
@@ -21,6 +20,7 @@ const TopBar = () => {
 			setEmail(emailUser.email);
 		}
 	};
+
 	if (localStorage.getItem('isLogged') === true) {
 		checkLogged();
 	}
@@ -31,9 +31,11 @@ const TopBar = () => {
 		setLogged(false);
 		navigate('/');
 	};
+
 	useEffect(() => {
 		checkLogged();
 	}, [logged]);
+
 	return (
 		<>
 			{logged ? (
@@ -45,10 +47,6 @@ const TopBar = () => {
 			)}
 		</>
 	);
-};
-
-TopBar.propTypes = {
-	test: PropTypes.string,
 };
 
 export { TopBar };
