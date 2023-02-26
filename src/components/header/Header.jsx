@@ -18,6 +18,9 @@ const Header = () => {
 					<NavLink to='/characters?page=1'>
 						<p>All characters</p>
 					</NavLink>
+					<NavLink to='/search'>
+						<p>Search</p>
+					</NavLink>
 					<TopBar />
 				</div>
 			</div>
