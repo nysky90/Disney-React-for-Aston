@@ -1,9 +1,10 @@
 import {
-	SignIn,
+	SignInPage,
 	SearchPage,
 	MainPage,
 	CharacterInfoPage,
 	CharacterPage,
+	LoginPage,
 } from '../containers';
 
 export const routesConfig = [
@@ -25,10 +26,10 @@ export const routesConfig = [
 	},
 	{
 		path: '/login',
-		element: <SignIn />,
+		element: <LoginPage />,
 	},
 	{
 		path: '/registration',
-		element: <SignIn />,
+		element: <SignInPage />,
 	},
 ];

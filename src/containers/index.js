@@ -1,5 +1,7 @@
 //App должден быть в самом конце, иначе всё сломается.
-export { SignIn } from './signIn/SignIn';
+export { PersonalPage } from './userPage/PersonalPage';
+export { LoginPage } from './loginPage/LoginPage';
+export { SignInPage } from './signInPage/SignInPage';
 export { CharacterInfoPage } from './characterInfoPage/CharacterInfoPage';
 export { MainPage } from './mainPage/MainPage';
 export { SearchPage } from './searchPage/SearchPage';
