@@ -23,6 +23,8 @@ const SignInPage = () => {
 		const userData = {
 			email: email.value,
 			password: password.value,
+			favorite: [],
+			history: [],
 		};
 		dispatch(registration(userData));
 	};
@@ -32,7 +34,7 @@ const SignInPage = () => {
 			email={email}
 			password={password}
 			title='Registration'
-			btn_text='SignIn'
+			btnText='Registrate'
 			handleSubmit={handleSubmit}
 		/>
 	);

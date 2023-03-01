@@ -18,18 +18,18 @@ const Header = () => {
 				</NavLink>
 				<div className={s.header__auth}>
 					<NavLink to='/characters?page=1'>
-						<p>All characters</p>
+						<p>All character`s</p>
 					</NavLink>
 					<NavLink to='/search'>
-						<p>Search</p>
+						<p>Search character</p>
 					</NavLink>
 					{!isLogged && (
 						<>
 							<NavLink to='/login'>
-								<p>LogIn</p>
+								<p>Login</p>
 							</NavLink>
 							<NavLink to='/registration'>
-								<p>SignIn</p>
+								<p>Registration</p>
 							</NavLink>
 						</>
 					)}

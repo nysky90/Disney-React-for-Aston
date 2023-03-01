@@ -1,10 +1,9 @@
 export const getLoggedUser = () => {
 	JSON.parse(localStorage.getItem('usersData')) ||
 		localStorage.setItem('usersData', '[]');
-	const loggedUser =
-		localStorage.getItem('isLogged') === 'true'
-			? JSON.parse(localStorage.getItem('authorizedUser'))
-			: '';
+	const loggedUser = JSON.parse(localStorage.getItem('isLogged'))
+		? JSON.parse(localStorage.getItem('authorizedUser'))
+		: '';
 	return loggedUser;
 };
 
@@ -16,6 +15,7 @@ export const checkUserLogin = (userData) => {
 			email === userData.email && password === userData.password
 	);
 	if (checkValueMatch) {
+		//подумать
 		localStorage.setItem('isLogged', true);
 		localStorage.setItem('authorizedUser', JSON.stringify(userData));
 		return checkValueMatch;
@@ -23,7 +23,7 @@ export const checkUserLogin = (userData) => {
 };
 
 //регистрация пользователя с проверкой на наличие одинаковых email
-export const registrationUser = (userData) => {
+export const registerUser = (userData) => {
 	const checkUser = JSON.parse(localStorage.getItem('usersData'));
 	const checkEmail = checkUser.some(({ email }) => email === userData.email);
 	if (!checkEmail) {

@@ -1,6 +1,6 @@
 export {
 	getLoggedUser,
 	checkUserLogin,
-	registrationUser,
+	registerUser,
 	clearLoggedUser,
 } from './usersCheker';

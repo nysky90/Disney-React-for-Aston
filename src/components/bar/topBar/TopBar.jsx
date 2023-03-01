@@ -20,9 +20,7 @@ const TopBar = () => {
 		navigate('/');
 	};
 
-	return (
-		<>{inLogged && <UserBar email={loginName} logoutUser={logoutUser} />}</>
-	);
+	return inLogged && <UserBar email={loginName} logoutUser={logoutUser} />;
 };
 
 export { TopBar };

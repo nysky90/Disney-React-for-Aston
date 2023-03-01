@@ -22,6 +22,8 @@ const LoginPage = () => {
 		const userData = {
 			email: email.value,
 			password: password.value,
+			favorite: [],
+			history: [],
 		};
 		dispatch(login(userData));
 	};
@@ -30,8 +32,8 @@ const LoginPage = () => {
 			email={email}
 			password={password}
 			handleSubmit={handleSubmit}
-			title='Authorization'
-			btn_text='LogIn'
+			title='Login'
+			btnText='Enter'
 		/>
 	);
 };

@@ -1,29 +1,29 @@
 /* eslint-disable no-fallthrough */
-import { login } from '../slice/user/userSlice';
+import { login, init, registration, logout } from '../slice/user/userSlice';
 import {
 	getLoggedUser,
 	checkUserLogin,
-	registrationUser,
+	registerUser,
 	clearLoggedUser,
 } from '../../utils';
 
-export const customMiddleware = (store) => (next) => (action) => {
+export const userControlMiddleware = (store) => (next) => (action) => {
 	switch (action.type) {
-		case 'user/init':
+		case init.type:
 			const loggetUser = getLoggedUser();
 			if (loggetUser) {
 				store.dispatch(login(loggetUser));
 			}
 			return next(action);
-		case 'user/login':
+		case login.type:
 			if (checkUserLogin(action.payload)) {
 				return next(action);
 			}
 			break;
-		case 'user/registration':
-			registrationUser(action.payload);
+		case registration.type:
+			registerUser(action.payload);
 			return next(action);
-		case 'user/logout':
+		case logout.type:
 			clearLoggedUser();
 			return next(action);
 		default:
