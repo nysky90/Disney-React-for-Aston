@@ -26,8 +26,14 @@ export const userSlice = createSlice({
 			state.user = action.payload;
 			state.isLogged = false;
 		},
+		saveHistory: (state, action) => {
+			state.user.history.push(action.payload);
+		},
 	},
 });
 
-export const { login, logout, registration, init } = userSlice.actions;
+export const { login, logout, registration, init, saveHistory } =
+	userSlice.actions;
 export default userSlice.reducer;
+
+export const selectorHistory = (state) => state.user.user.history;

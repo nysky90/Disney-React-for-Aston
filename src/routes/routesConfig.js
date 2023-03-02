@@ -17,7 +17,7 @@ export const routesConfig = [
 		element: <CharacterPage />,
 	},
 	{
-		path: '/search',
+		path: '/character',
 		element: <SearchPage />,
 	},
 	{

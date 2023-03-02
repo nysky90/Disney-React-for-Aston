@@ -1,1 +1,8 @@
-export { login, logout, registration, init } from './slice/user/userSlice';
+export {
+	login,
+	logout,
+	registration,
+	init,
+	saveHistory,
+	selectorHistory,
+} from './slice/user/userSlice';
