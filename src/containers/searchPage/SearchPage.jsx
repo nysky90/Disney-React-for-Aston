@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { saveHistory } from '../../store/slice/user/userSlice';
 import { UiButton } from '../../components';
 import { DISNEY_FILTER } from '../../constants/api';
 import { CharactersList, ErrorApi } from '../../components';
@@ -13,6 +15,7 @@ const SearchPage = () => {
 	const [inputValue, setInputValue] = useState('');
 	const [searchCharacters, setSearchCharacters] = useState([]);
 	const [error, setError] = useState(false);
+	const dispatch = useDispatch();
 
 	const query = useQueryParams();
 	const queryName = query.get('name');
@@ -38,10 +41,8 @@ const SearchPage = () => {
 		queryName && setCharacter(DISNEY_FILTER + queryName);
 	}, [queryName]);
 
-	const saveHistory = () => {
-		const user = JSON.parse(localStorage.getItem('authorizedUser'));
-		user.history.push(inputValue);
-		localStorage.setItem('authorizedUser', JSON.stringify(user));
+	const handleHistory = () => {
+		dispatch(saveHistory(inputValue));
 	};
 
 	//переписать на useReduce
@@ -66,7 +67,7 @@ const SearchPage = () => {
 			/>
 			<div>
 				<Link to={`/character?name=${inputValue}`}>
-					<UiButton text='Find' onClick={saveHistory} />
+					<UiButton text='Find' onClick={handleHistory} />
 				</Link>
 				<UiButton text='Clear' onClick={clearInput} />
 			</div>

@@ -26,6 +26,13 @@ const setLoggedUser = (users, user) => {
 	localStorage.setItem('authorizedUser', JSON.stringify(...loggedUser));
 };
 
+//достаем историю пользователя
+export const getHistoryUser = (userData) => {
+	const checkUsers = JSON.parse(localStorage.getItem('usersData'));
+	const loggedUser = checkUsers.filter(({ email }) => email === userData.email);
+	return loggedUser[0].history;
+};
+
 //регистрация пользователя с проверкой на наличие одинаковых email
 export const registerUser = (userData) => {
 	const checkUser = JSON.parse(localStorage.getItem('usersData'));
@@ -37,16 +44,17 @@ export const registerUser = (userData) => {
 	}
 };
 
-const replaceUserData = () => {
-	const user = JSON.parse(localStorage.getItem('authorizedUser'));
+const replaceUserData = (user) => {
 	const userData = JSON.parse(localStorage.getItem('usersData'));
-	const newUserData = userData.filter((item) => item.email !== user.email);
-	newUserData.push(user);
+	const newUserData = userData.filter(
+		(item) => item.email !== user.user.user.email
+	);
+	newUserData.push(user.user.user);
 	localStorage.setItem('usersData', JSON.stringify(newUserData));
 };
 //Очистка ЛХ
-export const clearLoggedUser = () => {
-	replaceUserData();
+export const clearLoggedUser = (userData) => {
+	replaceUserData(userData);
 	localStorage.setItem('isLogged', false);
 	localStorage.setItem('authorizedUser', '');
 };

@@ -3,4 +3,5 @@ export {
 	checkUserLogin,
 	registerUser,
 	clearLoggedUser,
+	getHistoryUser,
 } from './usersCheker';

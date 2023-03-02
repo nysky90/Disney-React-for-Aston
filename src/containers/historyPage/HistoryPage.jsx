@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
+import { storeHistory } from '../../store/slice/user/userSlice';
+import { useSelector } from 'react-redux';
 
 import s from './historyPage.module.scss';
 
 const HistoryPage = () => {
-	const { history } = JSON.parse(localStorage.getItem('authorizedUser'));
+	const history = useSelector(storeHistory);
 
 	return (
 		<div className={s.history}>

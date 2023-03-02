@@ -24,7 +24,7 @@ export const userControlMiddleware = (store) => (next) => (action) => {
 			registerUser(action.payload);
 			return next(action);
 		case logout.type:
-			clearLoggedUser();
+			clearLoggedUser(store.getState());
 			return next(action);
 		default:
 			next(action);
