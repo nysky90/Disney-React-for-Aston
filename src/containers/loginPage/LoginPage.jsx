@@ -19,6 +19,7 @@ const LoginPage = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+
 		const userData = {
 			email: email.value,
 			password: password.value,
@@ -27,6 +28,7 @@ const LoginPage = () => {
 		};
 		dispatch(login(userData));
 	};
+
 	return (
 		<CustomForm
 			email={email}

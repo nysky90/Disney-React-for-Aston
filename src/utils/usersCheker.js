@@ -26,6 +26,18 @@ const setLoggedUser = (users, user) => {
 	localStorage.setItem('authorizedUser', JSON.stringify(...loggedUser));
 };
 
+export const saveInLSHistory = (history) => {
+	const currentUser = JSON.parse(localStorage.getItem('authorizedUser'));
+	const usersData = JSON.parse(localStorage.getItem('usersData'));
+	currentUser.history.push(history);
+	const newUserData = usersData.filter(
+		(item) => item.email !== currentUser.email
+	);
+	newUserData.push(currentUser);
+	localStorage.setItem('authorizedUser', JSON.stringify(currentUser));
+	localStorage.setItem('usersData', JSON.stringify(newUserData));
+};
+
 //достаем историю пользователя
 export const getHistoryUser = (userData) => {
 	const checkUsers = JSON.parse(localStorage.getItem('usersData'));

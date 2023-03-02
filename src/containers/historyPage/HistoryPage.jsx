@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
-import { storeHistory } from '../../store/slice/user/userSlice';
+import { selectorHistory } from '../../store/slice/user/userSlice';
 import { useSelector } from 'react-redux';
 
 import s from './historyPage.module.scss';
 
 const HistoryPage = () => {
-	const history = useSelector(storeHistory);
-
+	const history = useSelector(selectorHistory);
 	return (
 		<div className={s.history}>
 			<h1 className={s.history__title}>Character search history</h1>

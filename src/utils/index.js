@@ -4,4 +4,5 @@ export {
 	registerUser,
 	clearLoggedUser,
 	getHistoryUser,
+	saveInLSHistory,
 } from './usersCheker';

@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getHistoryUser } from '../../../utils';
 
 const initialState = {
 	user: {
@@ -17,9 +16,7 @@ export const userSlice = createSlice({
 	reducers: {
 		init: (state) => state,
 		login: (state, action) => {
-			const userHistory = getHistoryUser(action.payload);
 			state.user = action.payload;
-			state.user.history.push(...userHistory);
 			state.isLogged = true;
 		},
 		logout: () => {
@@ -39,4 +36,4 @@ export const { login, logout, registration, init, saveHistory } =
 	userSlice.actions;
 export default userSlice.reducer;
 
-export const storeHistory = (state) => state.user.user.history;
+export const selectorHistory = (state) => state.user.user.history;

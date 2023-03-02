@@ -10,6 +10,7 @@ import { init } from '../../store/slice/user/userSlice';
 function App() {
 	const dispatch = useDispatch();
 	dispatch(init());
+
 	return (
 		<div>
 			<BrowserRouter>

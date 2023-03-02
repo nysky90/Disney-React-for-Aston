@@ -3,5 +3,6 @@ export {
 	logout,
 	registration,
 	init,
-	storeHistory,
+	saveHistory,
+	selectorHistory,
 } from './slice/user/userSlice';
