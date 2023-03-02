@@ -20,8 +20,8 @@ const Header = () => {
 					<NavLink to='/characters?page=1'>
 						<p>All character`s</p>
 					</NavLink>
-					<NavLink to='/search'>
-						<p>Search character</p>
+					<NavLink to='/character'>
+						<p>Find character</p>
 					</NavLink>
 					{!isLogged && (
 						<>

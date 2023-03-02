@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { UiButton } from '../../components';
 import { DISNEY_FILTER } from '../../constants/api';
 import { CharactersList, ErrorApi } from '../../components';
+import { useQueryParams } from '../../hooks/useQueryParams';
 import { getApiResourse } from '../../utils/network';
 
 import s from './searchPage.module.scss';
@@ -12,24 +14,37 @@ const SearchPage = () => {
 	const [searchCharacters, setSearchCharacters] = useState([]);
 	const [error, setError] = useState(false);
 
-	const setCharacter = async () => {
-		const result = await getApiResourse(DISNEY_FILTER + inputValue);
-		if (result && result.data.length > 0 && inputValue) {
-			const characterList = result.data.map(({ name, _id, imageUrl }) => {
-				return {
-					name,
-					id: _id,
-					img: imageUrl,
-				};
-			});
-			setSearchCharacters(characterList);
-			setError(false);
-		} else {
-			setError(true);
-			setSearchCharacters([]);
-		}
+	const query = useQueryParams();
+	const queryName = query.get('name');
+
+	useEffect(() => {
+		const setCharacter = async () => {
+			const result = await getApiResourse(DISNEY_FILTER + queryName);
+			if (result && result.data.length > 0) {
+				const characterList = result.data.map(({ name, _id, imageUrl }) => {
+					return {
+						name,
+						id: _id,
+						img: imageUrl,
+					};
+				});
+				setSearchCharacters(characterList);
+				setError(false);
+			} else {
+				setError(true);
+				setSearchCharacters([]);
+			}
+		};
+		queryName && setCharacter(DISNEY_FILTER + queryName);
+	}, [queryName]);
+
+	const saveHistory = () => {
+		const user = JSON.parse(localStorage.getItem('authorizedUser'));
+		user.history.push(inputValue);
+		localStorage.setItem('authorizedUser', JSON.stringify(user));
 	};
 
+	//переписать на useReduce
 	const clearInput = () => {
 		setError(false);
 		setInputValue('');
@@ -50,7 +65,9 @@ const SearchPage = () => {
 				autoFocus
 			/>
 			<div>
-				<UiButton text='Find' onClick={setCharacter} />
+				<Link to={`/character?name=${inputValue}`}>
+					<UiButton text='Find' onClick={saveHistory} />
+				</Link>
 				<UiButton text='Clear' onClick={clearInput} />
 			</div>
 			{searchCharacters && <CharactersList characters={searchCharacters} />}
