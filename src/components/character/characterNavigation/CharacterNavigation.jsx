@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { UiButton } from '../../components';
+import { UiButton } from '../..';
 
 import s from './characterNavigation.module.scss';
 

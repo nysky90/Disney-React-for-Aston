@@ -1,5 +1,6 @@
 //App должден быть в самом конце, иначе всё сломается.
 export { PersonalPage } from './userPage/PersonalPage';
+export { FavoritePage } from './favoritePage/FavoritePage';
 export { HistoryPage } from './historyPage/HistoryPage';
 export { LoginPage } from './loginPage/LoginPage';
 export { SignInPage } from './signInPage/SignInPage';

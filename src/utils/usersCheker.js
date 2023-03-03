@@ -39,10 +39,10 @@ export const saveInLSHistory = (history) => {
 };
 
 //достаем историю пользователя
-export const getHistoryUser = (userData) => {
+export const getComponentUser = (userData, directory) => {
 	const checkUsers = JSON.parse(localStorage.getItem('usersData'));
 	const loggedUser = checkUsers.filter(({ email }) => email === userData.email);
-	return loggedUser[0].history;
+	return loggedUser[0][directory];
 };
 
 //регистрация пользователя с проверкой на наличие одинаковых email

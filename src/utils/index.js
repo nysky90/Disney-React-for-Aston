@@ -3,6 +3,6 @@ export {
 	checkUserLogin,
 	registerUser,
 	clearLoggedUser,
-	getHistoryUser,
+	getComponentUser,
 	saveInLSHistory,
 } from './usersCheker';

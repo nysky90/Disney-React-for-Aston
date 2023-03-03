@@ -8,3 +8,7 @@ export const store = configureStore({
 	},
 	middleware: [userControlMiddleware],
 });
+
+store.subscribe(() => {
+	console.log(store.getState().user.user);
+});

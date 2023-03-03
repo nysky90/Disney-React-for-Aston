@@ -1,12 +1,13 @@
 export { CustomForm } from './forms/customForm/CustomForm';
+export { CharacterImage } from './character/characterImage/CharacterImage';
 export { UserBar } from './bar/userBar/UserBar';
 export { ErrorApi } from './errorApi/ErrorApi.jsx';
 export { TopBar } from './bar/topBar/TopBar.jsx';
 export { UiSpinner } from './ui/uiSpinner/UiSpinner';
-export { CharacterLinkGoBack } from './characterLinkGoBack/CharacterLinkGoBack';
+export { CharacterLinkGoBack } from './character/characterLinkGoBack/CharacterLinkGoBack';
 export { ListOfElements } from './listOfElements/ListOfElements';
-export { CharacterInfo } from './characterInfo/CharacterInfo';
+export { CharacterInfo } from './character/characterInfo/CharacterInfo';
 export { UiButton } from './ui/uiButton/UiButton';
-export { CharacterNavigation } from './characterNavigation/CharacterNavigation';
-export { CharactersList } from './charactersList/CharactersList';
+export { CharacterNavigation } from './character/characterNavigation/CharacterNavigation';
+export { CharactersList } from './character/charactersList/CharactersList';
 export { Header } from './header/Header';
