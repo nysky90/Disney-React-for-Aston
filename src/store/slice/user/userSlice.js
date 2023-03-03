@@ -29,11 +29,15 @@ export const userSlice = createSlice({
 		saveHistory: (state, action) => {
 			state.user.history.push(action.payload);
 		},
+		saveFavorite: (state, action) => {
+			state.user.favorite.push(action.payload);
+		},
 	},
 });
 
-export const { login, logout, registration, init, saveHistory } =
+export const { login, logout, registration, init, saveHistory, saveFavorite } =
 	userSlice.actions;
 export default userSlice.reducer;
 
 export const selectorHistory = (state) => state.user.user.history;
+export const selectorFavorite = (state) => state.user.user.favorite;

@@ -4,5 +4,7 @@ export {
 	registration,
 	init,
 	saveHistory,
+	saveFavorite,
 	selectorHistory,
+	selectorFavorite,
 } from './slice/user/userSlice';

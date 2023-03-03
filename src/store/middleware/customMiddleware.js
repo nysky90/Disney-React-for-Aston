@@ -5,6 +5,7 @@ import {
 	registration,
 	logout,
 	saveHistory,
+	saveFavorite,
 } from '../slice/user/userSlice';
 import {
 	getLoggedUser,
@@ -12,7 +13,7 @@ import {
 	registerUser,
 	clearLoggedUser,
 	saveInLSHistory,
-	getHistoryUser,
+	getComponentUser,
 } from '../../utils';
 
 export const userControlMiddleware = (store) => (next) => (action) => {
@@ -25,9 +26,11 @@ export const userControlMiddleware = (store) => (next) => (action) => {
 			return next(action);
 		case login.type:
 			if (checkUserLogin(action.payload)) {
-				const history = getHistoryUser(action.payload);
+				const historyData = getComponentUser(action.payload, 'history');
+				const favoriteData = getComponentUser(action.payload, 'favorite');
 				let user = action.payload;
-				user.history = history;
+				user.history = [...historyData];
+				user.favorite = [...favoriteData];
 				console.log(user);
 				return next(action);
 			}
@@ -37,6 +40,8 @@ export const userControlMiddleware = (store) => (next) => (action) => {
 			return next(action);
 		case saveHistory.type:
 			saveInLSHistory(action.payload);
+			return next(action);
+		case saveFavorite.type:
 			return next(action);
 		case logout.type:
 			clearLoggedUser(store.getState());

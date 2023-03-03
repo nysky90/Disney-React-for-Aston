@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
-import { ListOfElements } from '../../components';
+import { CharacterImage } from '../..';
+import { ListOfElements } from '../..';
 
 import s from './characterInfo.module.scss';
 
@@ -8,9 +9,7 @@ const CharacterInfo = ({ info }) => {
 	const { name, imageUrl, films, shortFilms, tvShows, videoGames } = info;
 	return (
 		<div className={s.charInfo}>
-			<div className={s.charInfo__img}>
-				<img src={imageUrl} alt={name} />
-			</div>
+			<CharacterImage imageUrl={imageUrl} name={name} />
 			<div className={s.charInfo__base}>
 				<h2 className={s.charInfo__title}>{name}</h2>
 				<div className={s.charInfo__wrapper}>
