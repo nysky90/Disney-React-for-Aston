@@ -1,4 +1,3 @@
-/* eslint-disable no-fallthrough */
 import {
 	login,
 	init,
@@ -6,14 +5,17 @@ import {
 	logout,
 	saveHistory,
 	saveFavorite,
+	deleteFavorite,
 } from '../slice/user/userSlice';
 import {
 	getLoggedUser,
 	checkUserLogin,
 	registerUser,
 	clearLoggedUser,
-	saveInLSHistory,
+	saveInLocalStorage,
 	getComponentUser,
+	checkDoubleData,
+	deleteDataId,
 } from '../../utils';
 
 export const userControlMiddleware = (store) => (next) => (action) => {
@@ -31,7 +33,6 @@ export const userControlMiddleware = (store) => (next) => (action) => {
 				let user = action.payload;
 				user.history = [...historyData];
 				user.favorite = [...favoriteData];
-				console.log(user);
 				return next(action);
 			}
 			break;
@@ -39,10 +40,23 @@ export const userControlMiddleware = (store) => (next) => (action) => {
 			registerUser(action.payload);
 			return next(action);
 		case saveHistory.type:
-			saveInLSHistory(action.payload);
-			return next(action);
+			if (!checkDoubleData(action.payload, 'history')) {
+				saveInLocalStorage(action.payload, 'history');
+				return next(action);
+			}
+			break;
 		case saveFavorite.type:
-			return next(action);
+			if (!checkDoubleData(action.payload, 'favorite')) {
+				saveInLocalStorage(action.payload, 'favorite');
+				return next(action);
+			}
+			break;
+		case deleteFavorite.type:
+			if (checkDoubleData(action.payload, 'favorite')) {
+				deleteDataId(action.payload);
+				return next(action);
+			}
+			break;
 		case logout.type:
 			clearLoggedUser(store.getState());
 			return next(action);
