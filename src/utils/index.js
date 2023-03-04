@@ -4,5 +4,7 @@ export {
 	registerUser,
 	clearLoggedUser,
 	getComponentUser,
-	saveInLSHistory,
+	saveInLocalStorage,
+	checkDoubleData,
+	deleteDataId,
 } from './usersCheker';

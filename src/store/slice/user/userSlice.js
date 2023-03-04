@@ -32,11 +32,23 @@ export const userSlice = createSlice({
 		saveFavorite: (state, action) => {
 			state.user.favorite.push(action.payload);
 		},
+		deleteFavorite: (state, action) => {
+			state.user.favorite = state.user.favorite.filter(
+				(item) => item !== action.payload
+			);
+		},
 	},
 });
 
-export const { login, logout, registration, init, saveHistory, saveFavorite } =
-	userSlice.actions;
+export const {
+	login,
+	logout,
+	registration,
+	init,
+	saveHistory,
+	saveFavorite,
+	deleteFavorite,
+} = userSlice.actions;
 export default userSlice.reducer;
 
 export const selectorHistory = (state) => state.user.user.history;

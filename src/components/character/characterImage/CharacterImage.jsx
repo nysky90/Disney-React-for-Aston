@@ -1,32 +1,41 @@
-import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { saveFavorite } from '../../../store';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
+
+import { saveFavorite, deleteFavorite, selectorFavorite } from '../../../store';
+import iconFavoriteActive from './img/favorite.svg';
+import iconFavorite from './img/favoriteGrey.svg';
+
 import s from './characterImage.module.scss';
 
 const CharacterImage = ({ imageUrl, name }) => {
+	const favoriteChar = useSelector(selectorFavorite);
 	const dispatch = useDispatch();
-
 	const { id } = useParams();
 
-	const setFavorite = () => {
-		console.log('i wanna save ' + id);
-		dispatch(saveFavorite(id));
+	const checkFavorite = favoriteChar.some((char) => char === id);
+
+	const dispatchFavoriteChar = () => {
+		if (checkFavorite) {
+			dispatch(deleteFavorite(id));
+		} else {
+			dispatch(saveFavorite(id));
+		}
 	};
 
 	return (
 		<>
 			<div className={s.charInfo__img}>
 				<img src={imageUrl} alt={name} />
+				<button className={s.charInfo__btn} onClick={dispatchFavoriteChar}>
+					{checkFavorite ? (
+						<img src={iconFavoriteActive} alt='favoriteActive' />
+					) : (
+						<img src={iconFavorite} alt='favorite' />
+					)}
+				</button>
 			</div>
-			<button onClick={setFavorite}>set</button>
-			<button>delete</button>
 		</>
 	);
-};
-
-CharacterImage.propTypes = {
-	test: PropTypes.string,
 };
 
 export { CharacterImage };
