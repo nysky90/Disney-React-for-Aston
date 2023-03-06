@@ -2,51 +2,25 @@ import { useState, useEffect } from 'react';
 
 import { CharacterNavigation, CharactersList } from '../../components';
 import { useQueryParams } from '../../hooks/useQueryParams';
-import { getApiResourse } from '../../utils/network';
-import { getCharacterPageId } from '../../services/getCharactersData';
-import { DISNEY_URL } from '../../constants/api';
+import { useGetCharactersQuery } from '../../utils';
 
 const CharacterPage = () => {
-	const [characters, setCharacters] = useState(null);
-	const [prevCharacters, setPrevCharacters] = useState(null);
-	const [nextCharacters, setNextCharacters] = useState(null);
 	const [counterPage, setCounterPage] = useState(1);
 
 	const query = useQueryParams();
 	const queryPage = query.get('page');
-
-	const getResourse = async (url) => {
-		const result = await getApiResourse(url);
-		if (result) {
-			const characterList = result.data.map(({ name, _id, imageUrl }) => {
-				return {
-					name,
-					id: _id,
-					img: imageUrl,
-				};
-			});
-			setCharacters(characterList);
-			setNextCharacters(result.nextPage);
-			setPrevCharacters(result.previousPage);
-			setCounterPage(getCharacterPageId(url));
-		} else {
-			console.log('ERROR!!!!');
-		}
-	};
+	const { data, isLoading, isError } = useGetCharactersQuery(queryPage);
 
 	useEffect(() => {
-		getResourse(DISNEY_URL + queryPage);
+		setCounterPage(queryPage);
 	}, [queryPage]);
 
 	return (
 		<>
-			<CharacterNavigation
-				getResourse={getResourse}
-				prevCharacters={prevCharacters}
-				nextCharacters={nextCharacters}
-				counterPage={counterPage}
-			/>
-			{characters && <CharactersList characters={characters} />}
+			<CharacterNavigation counterPage={counterPage} error={isError} />
+			{isLoading && <h1>Loading...</h1>}
+			{isError && <h1>Error</h1>}
+			{data && <CharactersList characters={data.data} />}
 		</>
 	);
 };

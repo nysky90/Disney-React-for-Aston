@@ -1,10 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userSlice from './slice/user/userSlice';
 import { userControlMiddleware } from './middleware/customMiddleware';
+import { disneyApi } from '../utils';
 
 export const store = configureStore({
 	reducer: {
 		user: userSlice,
+		[disneyApi.reducerPath]: disneyApi.reducer,
 	},
-	middleware: [userControlMiddleware],
+	middleware: (getDefaultMiddlware) =>
+		getDefaultMiddlware().concat(disneyApi.middleware, userControlMiddleware),
 });

@@ -7,6 +7,7 @@ import s from './characterInfo.module.scss';
 
 const CharacterInfo = ({ info }) => {
 	const { name, imageUrl, films, shortFilms, tvShows, videoGames } = info;
+
 	return (
 		<div className={s.charInfo}>
 			<CharacterImage imageUrl={imageUrl} name={name} />
