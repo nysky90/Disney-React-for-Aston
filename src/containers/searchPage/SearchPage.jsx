@@ -1,55 +1,32 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { saveHistory } from '../../store/slice/user/userSlice';
+import { CharactersList } from '../../components';
+import { saveHistory } from '../../store';
 import { UiButton } from '../../components';
-import { DISNEY_FILTER } from '../../constants/api';
-import { CharactersList, ErrorApi } from '../../components';
 import { useQueryParams } from '../../hooks/useQueryParams';
-import { getApiResourse } from '../../utils/network';
+import { useSearchCharacterQuery } from '../../utils';
 
 import s from './searchPage.module.scss';
 
 const SearchPage = () => {
 	const [inputValue, setInputValue] = useState('');
-	const [searchCharacters, setSearchCharacters] = useState([]);
-	const [error, setError] = useState(false);
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const query = useQueryParams();
 	const queryName = query.get('name');
-
-	useEffect(() => {
-		const setCharacter = async () => {
-			const result = await getApiResourse(DISNEY_FILTER + queryName);
-			if (result && result.data.length > 0) {
-				const characterList = result.data.map(({ name, _id, imageUrl }) => {
-					return {
-						name,
-						id: _id,
-						img: imageUrl,
-					};
-				});
-				setSearchCharacters(characterList);
-				setError(false);
-			} else {
-				setError(true);
-				setSearchCharacters([]);
-			}
-		};
-		queryName && setCharacter(DISNEY_FILTER + queryName);
-	}, [queryName]);
+	let { data } = useSearchCharacterQuery(queryName);
 
 	const handleHistory = () => {
 		dispatch(saveHistory(inputValue));
+		navigate(`/character?name=${inputValue}`);
 	};
 
-	//переписать на useReduce
 	const clearInput = () => {
-		setError(false);
 		setInputValue('');
-		setSearchCharacters([]);
+		navigate(`/character`);
 	};
 
 	return (
@@ -66,13 +43,10 @@ const SearchPage = () => {
 				autoFocus
 			/>
 			<div>
-				<Link to={`/character?name=${inputValue}`}>
-					<UiButton text='Find' onClick={handleHistory} />
-				</Link>
+				<UiButton text='Find' onClick={handleHistory} />
 				<UiButton text='Clear' onClick={clearInput} />
 			</div>
-			{searchCharacters && <CharactersList characters={searchCharacters} />}
-			{error && <ErrorApi />}
+			{data && <CharactersList characters={data} />}
 		</div>
 	);
 };

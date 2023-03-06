@@ -6,10 +6,10 @@ import s from './charactersList.module.scss';
 const CharactersList = ({ characters }) => {
 	return (
 		<ul className={s.list}>
-			{characters.map(({ name, id, img }) => (
+			{characters.map(({ name, id, imageUrl }) => (
 				<li key={id} className={s.list__item}>
 					<Link to={`/characters/${id}`}>
-						<img src={img} alt={name} className={s.list__img} />
+						<img src={imageUrl} alt={name} className={s.list__img} />
 						<p className={s.list__text}>{name}</p>
 					</Link>
 				</li>
@@ -22,7 +22,7 @@ CharactersList.propTypes = {
 	characters: PropTypes.arrayOf(
 		PropTypes.shape({
 			name: PropTypes.string,
-			img: PropTypes.string,
+			imageUrl: PropTypes.string,
 			id: PropTypes.number,
 		})
 	),
