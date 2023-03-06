@@ -20,7 +20,7 @@ const CharacterPage = () => {
 			<CharacterNavigation counterPage={counterPage} error={isError} />
 			{isLoading && <h1>Loading...</h1>}
 			{isError && <h1>Error</h1>}
-			{data && <CharactersList characters={data.data} />}
+			{data && <CharactersList characters={data} />}
 		</>
 	);
 };

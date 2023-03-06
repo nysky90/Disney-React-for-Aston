@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { CharactersList } from '../../components';
 import { saveHistory } from '../../store';
@@ -13,6 +13,7 @@ import s from './searchPage.module.scss';
 const SearchPage = () => {
 	const [inputValue, setInputValue] = useState('');
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const query = useQueryParams();
 	const queryName = query.get('name');
@@ -20,10 +21,12 @@ const SearchPage = () => {
 
 	const handleHistory = () => {
 		dispatch(saveHistory(inputValue));
+		navigate(`/character?name=${inputValue}`);
 	};
 
 	const clearInput = () => {
 		setInputValue('');
+		navigate(`/character`);
 	};
 
 	return (
@@ -40,14 +43,10 @@ const SearchPage = () => {
 				autoFocus
 			/>
 			<div>
-				<Link to={`/character?name=${inputValue}`}>
-					<UiButton text='Find' onClick={handleHistory} />
-				</Link>
-				<Link to={`/character`}>
-					<UiButton text='Clear' onClick={clearInput} />
-				</Link>
+				<UiButton text='Find' onClick={handleHistory} />
+				<UiButton text='Clear' onClick={clearInput} />
 			</div>
-			{data && <CharactersList characters={data.data} />}
+			{data && <CharactersList characters={data} />}
 		</div>
 	);
 };

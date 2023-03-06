@@ -6,9 +6,17 @@ export const disneyApi = createApi({
 	endpoints: (build) => ({
 		getCharacters: build.query({
 			query: (number = 1) => `characters?page=${number}`,
+			transformResponse: ({ data }) =>
+				data.map(({ name, _id, imageUrl }) => {
+					return { name, id: _id, imageUrl };
+				}),
 		}),
 		searchCharacter: build.query({
 			query: (name) => `/character?name=${name}`,
+			transformResponse: ({ data }) =>
+				data.map(({ name, _id, imageUrl }) => {
+					return { name, id: _id, imageUrl };
+				}),
 		}),
 		getCharacterById: build.query({
 			query: (id = '') => `/characters/${id}`,
