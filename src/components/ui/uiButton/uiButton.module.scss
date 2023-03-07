@@ -7,6 +7,10 @@
 	border: 2px solid;
 	cursor: pointer;
 	&:disabled {
+		cursor: auto;
+		background-color: #9c9c9c;
+		border: 2px solid #a7a7a7;
+		color: #696969;
 		&:hover {
 			cursor: auto;
 			background-color: #9c9c9c;
@@ -15,8 +19,19 @@
 		}
 	}
 }
-
-.fun {
+.small {
+	font-size: 10px;
+	padding: 5px 10px;
+}
+.medium {
+	font-size: 14px;
+	padding: 10px 20px;
+}
+.big {
+	font-size: 20px;
+	padding: 15px 30px;
+}
+.girls {
 	background-color: none;
 	color: #ffa7e5;
 	transition: 0.4s;
@@ -38,7 +53,7 @@
 	}
 }
 
-.boy {
+.boys {
 	background-color: #7aceff;
 	color: #1e6a96;
 	border: 2px solid #1e6a96;

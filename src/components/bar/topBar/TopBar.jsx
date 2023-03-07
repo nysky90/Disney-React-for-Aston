@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom';
-import { UserBar } from '../userBar/UserBar';
 import { useDispatch } from 'react-redux';
-import { logout } from '../../../store/slice/user/userSlice';
+import { useEffect } from 'react';
+
+import { UserBar } from '../../';
+import { logout } from '../../../store/';
 import {
 	useEmailIsLogged,
 	useCheckIsLogged,
 } from '../../../hooks/useCheckIsLogged';
-import { useEffect } from 'react';
 
 const TopBar = () => {
 	const navigate = useNavigate();
@@ -22,6 +23,7 @@ const TopBar = () => {
 		if (inLogged) {
 			navigate('/');
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [inLogged]);
 
 	return inLogged && <UserBar email={loginName} logoutUser={logoutUser} />;

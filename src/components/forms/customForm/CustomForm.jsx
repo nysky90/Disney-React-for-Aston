@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import { UiButton } from '../../';
+
 import s from '../forms.module.scss';
 
 //Prettier исправляет конструкцию (a&&b) && c убирая скобки, поэтмоу делаю через ?
@@ -35,14 +37,13 @@ const CustomForm = (props) => {
 				name='password'
 				minLength={3}
 			/>
-			<button
+			<UiButton
 				type='submit'
 				disabled={!email.formValidation || !password.formValidation}
-				className={s.form__btn}
 				onClick={handleSubmit}
-			>
-				{btnText}
-			</button>
+				text={btnText}
+				size='big'
+			/>
 		</form>
 	);
 };
