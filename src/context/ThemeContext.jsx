@@ -1,11 +1,10 @@
 import { createContext, useContext, useState } from 'react';
 
 const ThemeContext = createContext(null);
+const body = document.querySelector('body');
 
 const ThemeProvider = ({ children }) => {
 	const [theme, setTheme] = useState('pink');
-
-	const body = document.querySelector('body');
 
 	const change = (theme) => {
 		setTheme(theme);

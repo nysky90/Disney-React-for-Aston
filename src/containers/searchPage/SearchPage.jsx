@@ -22,7 +22,9 @@ const SearchPage = () => {
 	let { data } = useSearchCharacterQuery(queryName);
 
 	const handleHistory = () => {
-		isLogged && dispatch(saveHistory(inputValue));
+		if (isLogged) {
+			dispatch(saveHistory(inputValue));
+		}
 		navigate(`/character?name=${inputValue}`);
 	};
 
