@@ -18,8 +18,8 @@ const CharacterPage = () => {
 	return (
 		<>
 			<CharacterNavigation counterPage={counterPage} error={isError} />
-			{isLoading && <h1>Loading...</h1>}
-			{isError && <h1>Error</h1>}
+			{isLoading && <h2>Loading...</h2>}
+			{isError && <h2>Error</h2>}
 			{data && <CharactersList characters={data} />}
 		</>
 	);

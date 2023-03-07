@@ -6,6 +6,7 @@ import { CharactersList } from '../../components';
 import { saveHistory } from '../../store';
 import { UiButton } from '../../components';
 import { useQueryParams } from '../../hooks/useQueryParams';
+import { useCheckIsLogged } from '../../hooks/useUser';
 import { useSearchCharacterQuery } from '../../utils';
 
 import s from './searchPage.module.scss';
@@ -15,12 +16,13 @@ const SearchPage = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
+	const isLogged = useCheckIsLogged();
 	const query = useQueryParams();
 	const queryName = query.get('name');
 	let { data } = useSearchCharacterQuery(queryName);
 
 	const handleHistory = () => {
-		dispatch(saveHistory(inputValue));
+		isLogged && dispatch(saveHistory(inputValue));
 		navigate(`/character?name=${inputValue}`);
 	};
 

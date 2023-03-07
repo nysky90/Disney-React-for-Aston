@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-import { TopBar } from '../bar/topBar/TopBar';
+import { TopBar } from '../';
+import { ChooseTheme } from '../';
 import { useCheckIsLogged } from '../../hooks/useUser';
 import logo from './img/logo.png';
 
@@ -13,24 +14,19 @@ const Header = () => {
 	return (
 		<div className={s.header}>
 			<div className={s.container}>
-				<NavLink to='/'>
-					<img src={logo} alt='logo' className={s.logo} />
-				</NavLink>
+				<div className={s.header__discr}>
+					<NavLink to='/'>
+						<img src={logo} alt='logo' className={s.logo} />
+					</NavLink>
+					<ChooseTheme />
+				</div>
 				<div className={s.header__auth}>
-					<NavLink to='/characters?page=1'>
-						<p>All character`s</p>
-					</NavLink>
-					<NavLink to='/character'>
-						<p>Find character</p>
-					</NavLink>
+					<NavLink to='/characters?page=1'>All character`s</NavLink>
+					<NavLink to='/character'>Find character</NavLink>
 					{!isLogged && (
 						<>
-							<NavLink to='/login'>
-								<p>Login</p>
-							</NavLink>
-							<NavLink to='/registration'>
-								<p>Registration</p>
-							</NavLink>
+							<NavLink to='/login'>Login</NavLink>
+							<NavLink to='/registration'>Registration</NavLink>
 						</>
 					)}
 					<TopBar />
