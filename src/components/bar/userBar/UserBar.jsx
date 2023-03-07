@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { UiButton } from '../../';
 
 const UserBar = ({ email, logoutUser }) => {
 	return (
@@ -6,7 +7,8 @@ const UserBar = ({ email, logoutUser }) => {
 			<Link to={'/history'}>History</Link>
 			<Link to={'/favorite'}>Favorite</Link>
 			{email}
-			<button onClick={logoutUser}>Logout</button>
+
+			<UiButton onClick={logoutUser} text='Logout' />
 		</>
 	);
 };

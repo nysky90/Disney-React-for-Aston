@@ -3,6 +3,9 @@ import { UiButton } from './UiButton';
 export default {
 	title: 'Ui-Kit/UiButton',
 	component: UiButton,
+	argTypes: {
+		backgroundColor: { control: 'color' },
+	},
 };
 
 const Template = (args) => <UiButton {...args} />;

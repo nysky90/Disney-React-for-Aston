@@ -8,6 +8,7 @@ const initialState = {
 		history: [],
 	},
 	isLogged: false,
+	existUser: false,
 };
 
 export const userSlice = createSlice({
@@ -24,7 +25,7 @@ export const userSlice = createSlice({
 		},
 		registration: (state, action) => {
 			state.user = action.payload;
-			state.isLogged = false;
+			state.isLogged = true;
 		},
 		saveHistory: (state, action) => {
 			state.user.history.push(action.payload);
@@ -37,6 +38,9 @@ export const userSlice = createSlice({
 				(item) => item !== action.payload
 			);
 		},
+		setLogged: (state, action) => {
+			state.isLogged = action.payload;
+		},
 	},
 });
 
@@ -48,8 +52,10 @@ export const {
 	saveHistory,
 	saveFavorite,
 	deleteFavorite,
+	setLogged,
 } = userSlice.actions;
 export default userSlice.reducer;
 
 export const selectorHistory = (state) => state.user.user.history;
 export const selectorFavorite = (state) => state.user.user.favorite;
+export const selectorIsLogged = (state) => state.user.isLogged;

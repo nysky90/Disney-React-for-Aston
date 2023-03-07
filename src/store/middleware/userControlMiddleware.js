@@ -6,6 +6,7 @@ import {
 	saveHistory,
 	saveFavorite,
 	deleteFavorite,
+	setLogged,
 } from '../slice/user/userSlice';
 import {
 	getLoggedUser,
@@ -33,12 +34,16 @@ export const userControlMiddleware = (store) => (next) => (action) => {
 				let user = action.payload;
 				user.history = [...historyData];
 				user.favorite = [...favoriteData];
+				store.dispatch(setLogged('true'));
 				return next(action);
 			}
 			break;
 		case registration.type:
-			registerUser(action.payload);
-			return next(action);
+			if (registerUser(action.payload)) {
+				store.dispatch(login(action.payload));
+				return next(action);
+			}
+			break;
 		case saveHistory.type:
 			if (!checkDoubleData(action.payload, 'history')) {
 				saveInLocalStorage(action.payload, 'history');

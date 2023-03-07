@@ -6,7 +6,7 @@ import { CharactersList } from '../../components';
 import { saveHistory } from '../../store';
 import { UiButton } from '../../components';
 import { useQueryParams } from '../../hooks/useQueryParams';
-import { useCheckIsLogged } from '../../hooks/useUser';
+import { useCheckIsLogged } from '../../hooks/useCheckIsLogged';
 import { useSearchCharacterQuery } from '../../utils';
 
 import s from './searchPage.module.scss';

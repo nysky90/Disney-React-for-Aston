@@ -8,4 +8,5 @@ export {
 	deleteFavorite,
 	selectorHistory,
 	selectorFavorite,
+	selectorIsLogged,
 } from './slice/user/userSlice';

@@ -2,7 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import { UserBar } from '../userBar/UserBar';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../../store/slice/user/userSlice';
-import { useEmailIsLogged, useCheckIsLogged } from '../../../hooks/useUser';
+import {
+	useEmailIsLogged,
+	useCheckIsLogged,
+} from '../../../hooks/useCheckIsLogged';
+import { useEffect } from 'react';
 
 const TopBar = () => {
 	const navigate = useNavigate();
@@ -14,6 +18,11 @@ const TopBar = () => {
 		dispatch(logout());
 		navigate('/');
 	};
+	useEffect(() => {
+		if (inLogged) {
+			navigate('/');
+		}
+	}, [inLogged]);
 
 	return inLogged && <UserBar email={loginName} logoutUser={logoutUser} />;
 };
