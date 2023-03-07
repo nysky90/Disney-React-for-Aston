@@ -3,12 +3,6 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	&__title {
-		text-align: center;
-		margin-top: 50px;
-		color: red;
-		font-weight: 900;
-	}
 	&__img {
 		width: 400px;
 		object-fit: cover;

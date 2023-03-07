@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { CharactersList } from '../../components';
 import { saveHistory } from '../../store';
 import { UiButton } from '../../components';
+import { useTheme } from '../../context/ThemeContext';
 import { useQueryParams } from '../../hooks/useQueryParams';
 import { useCheckIsLogged } from '../../hooks/useCheckIsLogged';
 import { useSearchCharacterQuery } from '../../utils';
@@ -16,6 +17,7 @@ const SearchPage = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
+	const themeBtn = useTheme();
 	const isLogged = useCheckIsLogged();
 	const query = useQueryParams();
 	const queryName = query.get('name');
@@ -25,7 +27,9 @@ const SearchPage = () => {
 		if (isLogged) {
 			dispatch(saveHistory(inputValue));
 		}
-		navigate(`/character?name=${inputValue}`);
+		if (inputValue) {
+			navigate(`/character?name=${inputValue}`);
+		}
 	};
 
 	const clearInput = () => {
@@ -35,7 +39,7 @@ const SearchPage = () => {
 
 	return (
 		<div className={s.search}>
-			<h1 className={s.search__title}>Search</h1>
+			<h2>Search</h2>
 			<input
 				type='text'
 				className={s.search__input}
@@ -47,8 +51,8 @@ const SearchPage = () => {
 				autoFocus
 			/>
 			<div>
-				<UiButton text='Find' onClick={handleHistory} />
-				<UiButton text='Clear' onClick={clearInput} />
+				<UiButton text='Find' onClick={handleHistory} theme={themeBtn.theme} />
+				<UiButton text='Clear' onClick={clearInput} theme={themeBtn.theme} />
 			</div>
 			{data && <CharactersList characters={data} />}
 		</div>

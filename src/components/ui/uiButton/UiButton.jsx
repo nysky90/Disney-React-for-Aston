@@ -7,12 +7,12 @@ const UiButton = ({
 	text,
 	onClick,
 	disabled = false,
-	classes = null,
-	theme = 'fun',
+	theme = 'girls',
+	size = 'medium',
 }) => {
 	return (
 		<button
-			className={cn(s.button, s[theme], classes)}
+			className={cn(s.button, s[theme], s[size])}
 			onClick={onClick}
 			disabled={disabled}
 		>

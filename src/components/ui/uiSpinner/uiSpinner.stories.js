@@ -4,10 +4,10 @@ export default {
 	title: 'Ui-Kit/UiSpinner',
 	component: UiSpinner,
 	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
-	args: {
-		primary: true,
+		size: {
+			options: ['small', 'medium', 'big'],
+			control: { type: 'radio' },
+		},
 	},
 };
 
