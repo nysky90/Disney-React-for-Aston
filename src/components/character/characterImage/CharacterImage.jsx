@@ -23,18 +23,16 @@ const CharacterImage = ({ imageUrl, name }) => {
 	};
 
 	return (
-		<>
-			<div className={s.charInfo__img}>
-				<img src={imageUrl} alt={name} />
-				<button className={s.charInfo__btn} onClick={dispatchFavoriteChar}>
-					{checkFavorite ? (
-						<img src={iconFavoriteActive} alt='favoriteActive' />
-					) : (
-						<img src={iconFavorite} alt='favorite' />
-					)}
-				</button>
-			</div>
-		</>
+		<div className={s.charInfo__img}>
+			<img src={imageUrl} alt={name} />
+			<button className={s.charInfo__btn} onClick={dispatchFavoriteChar}>
+				{checkFavorite ? (
+					<img src={iconFavoriteActive} alt='favoriteActive' />
+				) : (
+					<img src={iconFavorite} alt='favorite' />
+				)}
+			</button>
+		</div>
 	);
 };
 

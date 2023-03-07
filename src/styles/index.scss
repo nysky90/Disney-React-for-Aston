@@ -1,19 +1,28 @@
 @import './variables.scss';
 
 * {
-  font-family: "Roboto Condensed", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  color: $main-color;
+	font-family: 'Roboto Condensed', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: $main-color;
+	font-size: 18px;
+	font-weight: 400;
 }
 
 ul,
 li,
 dl {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	font-weight: 700;
+	&:hover {
+		color: $link-pink;
+	}
 }
 
 h1,
@@ -22,5 +31,31 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
+	margin: 0;
+}
+
+body {
+	background-color: $bg-color-pink;
+	color: $main-color;
+}
+
+.girls {
+	background-color: $bg-color-pink;
+	color: $color-text-pink;
+	a {
+		color: $color-text-pink;
+		&:hover {
+			color: $link-pink;
+		}
+	}
+}
+.boys {
+	background-color: $bg-color-blue;
+	color: $color-text-blue;
+	a {
+		color: $color-text-blue;
+		&:hover {
+			color: $link-blue;
+		}
+	}
 }

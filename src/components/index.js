@@ -1,4 +1,6 @@
 export { CustomForm } from './forms/customForm/CustomForm';
+export { ChooseTheme } from './chooseTheme/ChooseTheme';
+export { ErrorBoundary } from './errorBoundary/ErrorBoundary';
 export { ChatacterCard } from './character/chatacterCard/ChatacterCard';
 export { CharacterImage } from './character/characterImage/CharacterImage';
 export { UserBar } from './bar/userBar/UserBar';
