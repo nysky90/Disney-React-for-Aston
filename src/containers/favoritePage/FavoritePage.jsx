@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { lazy, Suspense } from 'react';
 
+import { UiSpinner } from '../../components';
 import { selectorFavorite } from '../../store';
 
 import s from './favoritePage.module.scss';
@@ -19,8 +20,8 @@ const FavoritePage = () => {
 			<ul className={s.favorite__list}>
 				{storeFavotiteData.map((id) => {
 					return (
-						<Suspense fallback={<h3>...Loading</h3>}>
-							<CharacterById key={id} id={id} />;
+						<Suspense key={id} fallback={<UiSpinner />}>
+							<CharacterById key={id} id={id} />
 						</Suspense>
 					);
 				})}

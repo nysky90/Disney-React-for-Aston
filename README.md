@@ -2,33 +2,42 @@
 
 ## 1 уровень (необходимый минимум)
 
-Реализованы Требования к функциональности, описанные в прикрепленном документе.  
+Реализованы Требования к функциональности, описанные в прикрепленном документе.
 
-### React  
+### React
+
 ---
 
+- Пишем функциональные компоненты c хуками в приоритете над классовыми. :heavy_check_mark: (из классовых только предохранитель)
 
-- Пишем функциональные компоненты c хуками в приоритете над классовыми.  
+- Есть четкое разделение компонентов на [умные](./src/containers/charactersPage/CharactersPage.jsx) - и [глупые](./src/components/character/chatacterCard/ChatacterCard.jsx) :heavy_check_mark:
 
-- Есть четкое разделение на умные и глупые компоненты  
+- Есть рендеринг списков [страница с персонажами](./src/components/character/charactersList/CharactersList.jsx) :heavy_check_mark:
 
-- Есть рендеринг списков  
+- Реализована хотя бы одна [форма](./src/components/forms/customForm/CustomForm.jsx) :heavy_check_mark:
 
-- Реализована хотя бы одна форма  
+- Есть применение Контекст API [Смена темы](./src/context/ThemeContext.jsx) :heavy_check_mark:
 
-- Есть применение Контекст API  
+- Есть [применение](./src/components/character/characterInfo/CharacterInfo.jsx) [предохранителя](./src/components/errorBoundary/ErrorBoundary.jsx) :heavy_check_mark:
 
-- Есть применение предохранителя  
+- Есть хотя бы один кастомный хук [useQueryParams](./src/hooks/useQueryParams.js) [useCheckIsLogged](./src/hooks/useCheckIsLogged.js) :heavy_check_mark:
 
-- Есть хотя бы один кастомный хук
-- Хотя бы несколько компонентов используют PropTypes
-- Поиск не должен триггерить много запросов к серверу
-- Есть применение lazy + Suspense
+- Хотя бы несколько компонентов используют PropTypes [CharactersList](./src/components/character/charactersList/CharactersList.jsx) [Form](./src/components/forms/customForm/CustomForm.jsx) :heavy_check_mark:
+
+- Поиск не должен триггерить много запросов к серверу :heavy_check_mark:
+
+- Есть применение [lazy + Suspense](./src/containers/favoritePage/FavoritePage.jsx)
 
 ### Redux
+
 ---
-- Используем Modern Redux with Redux Toolkit
-- Используем слайсы
-- Есть хотя бы одна кастомная мидлвара
-- Используется RTK Query
-- Используется Transforming Responses
+
+- Используем Modern Redux with Redux Toolkit :heavy_check_mark:
+
+- Используем [слайсы](./src/store/slice/user/userSlice.js) :heavy_check_mark:
+
+- Есть хотя бы одна кастомная [мидлвара](./src/store/middleware/userControlMiddleware.js) :heavy_check_mark:
+
+- Используется [RTK Query](./src/utils/disneyApi.js) :heavy_check_mark:
+
+- Используется [Transforming Responses](./src/utils/disneyApi.js) :heavy_check_mark:

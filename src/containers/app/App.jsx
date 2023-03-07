@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 
 import { PrivateRoute } from '../../routes/privateRoute';
 import { Header } from '../../components';
-import { HistoryPage, PersonalPage, FavoritePage } from '../../containers';
-import { init } from '../../store/slice/user/userSlice';
+import { HistoryPage, FavoritePage } from '../../containers';
+import { init } from '../../store/';
 
 function App() {
 	const dispatch = useDispatch();
@@ -17,7 +17,6 @@ function App() {
 				<Header />
 				<Routes>
 					<Route element={<PrivateRoute />}>
-						<Route path='/personPage' element={<PersonalPage />} />
 						<Route path='/history' element={<HistoryPage />} />
 						<Route path='/favorite' element={<FavoritePage />} />
 					</Route>

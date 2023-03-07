@@ -15,7 +15,7 @@ const MainPage = () => {
 				</Link>
 			</div>
 			<div className={s.main__item}>
-				<Link to='/search'>
+				<Link to='/character'>
 					<img src={one} alt='One' />
 					<p className={s.main__text}>Let's find your character!</p>
 				</Link>
