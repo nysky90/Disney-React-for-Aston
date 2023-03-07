@@ -3,7 +3,7 @@ import {
 	SearchPage,
 	MainPage,
 	CharacterInfoPage,
-	CharacterPage,
+	CharactersPage,
 	LoginPage,
 } from '../containers';
 
@@ -14,7 +14,7 @@ export const routesConfig = [
 	},
 	{
 		path: '/characters',
-		element: <CharacterPage />,
+		element: <CharactersPage />,
 	},
 	{
 		path: '/character',

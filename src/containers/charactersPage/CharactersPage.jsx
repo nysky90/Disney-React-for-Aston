@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react';
 
-import { CharacterNavigation, CharactersList } from '../../components';
+import {
+	CharacterNavigation,
+	CharactersList,
+	UiSpinner,
+	ErrorApi,
+} from '../../components';
 import { useQueryParams } from '../../hooks/useQueryParams';
 import { useGetCharactersQuery } from '../../utils';
 
-const CharacterPage = () => {
+const CharactersPage = () => {
 	const [counterPage, setCounterPage] = useState(1);
 
 	const query = useQueryParams();
@@ -18,11 +23,11 @@ const CharacterPage = () => {
 	return (
 		<>
 			<CharacterNavigation counterPage={counterPage} error={isError} />
-			{isLoading && <h2>Loading...</h2>}
-			{isError && <h2>Error</h2>}
+			{isLoading && <UiSpinner />}
+			{isError && <ErrorApi />}
 			{data && <CharactersList characters={data} />}
 		</>
 	);
 };
 
-export { CharacterPage };
+export { CharactersPage };

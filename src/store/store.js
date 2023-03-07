@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userSlice from './slice/user/userSlice';
-import { userControlMiddleware } from './middleware/customMiddleware';
+import { userControlMiddleware } from './middleware/userControlMiddleware';
 import { disneyApi } from '../utils';
 
 export const store = configureStore({

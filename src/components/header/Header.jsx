@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import { TopBar } from '../';
 import { ChooseTheme } from '../';
-import { useCheckIsLogged } from '../../hooks/useUser';
+import { useCheckIsLogged } from '../../hooks/useCheckIsLogged';
 import logo from './img/logo.png';
 
 import s from './header.module.scss';

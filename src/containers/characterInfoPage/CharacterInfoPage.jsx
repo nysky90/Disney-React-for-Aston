@@ -8,7 +8,6 @@ import s from './characterInfoPage.module.scss';
 
 const CharacterInfoPage = () => {
 	const { id } = useParams();
-
 	const { data } = useGetCharacterByIdQuery(id);
 
 	return (

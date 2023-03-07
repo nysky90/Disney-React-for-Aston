@@ -63,6 +63,8 @@ export const registerUser = (userData) => {
 	if (!checkEmail) {
 		oldLocalStorage.push(userData);
 		setUsersData('usersData', oldLocalStorage);
+		console.log(checkEmail);
+		return true;
 	}
 };
 //проработать нейминг стора!!!
