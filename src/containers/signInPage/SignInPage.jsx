@@ -1,10 +1,12 @@
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 import { useInput } from '../../hooks/useValidateInput';
 import { registration } from '../../store';
 import { CustomForm } from '../../components';
 
 const SignInPage = () => {
+	const [error, setError] = useState(false);
 	const email = useInput('', {
 		isEmpty: true,
 		minLength: 3,
@@ -26,7 +28,8 @@ const SignInPage = () => {
 			favorite: [],
 			history: [],
 		};
-		dispatch(registration(userData));
+		setError(false);
+		dispatch(registration(userData)) || setError(true);
 	};
 
 	return (
@@ -36,6 +39,7 @@ const SignInPage = () => {
 			title='Registration'
 			btnText='Registrate'
 			handleSubmit={handleSubmit}
+			isError={error}
 		/>
 	);
 };

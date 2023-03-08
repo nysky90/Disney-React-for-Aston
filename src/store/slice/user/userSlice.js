@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSelector, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
 	user: {
@@ -57,5 +57,14 @@ export const {
 export default userSlice.reducer;
 
 export const selectorHistory = (state) => state.user.user.history;
-export const selectorFavorite = (state) => state.user.user.favorite;
+const selectorFavoriteList = (state) => state.user.user.favorite;
 export const selectorIsLogged = (state) => state.user.isLogged;
+
+export const selectorFavorite = createSelector(
+	selectorFavoriteList,
+	(favorite) => {
+		const result = [...favorite];
+		result.sort((a, b) => a - b);
+		return result;
+	}
+);
