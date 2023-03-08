@@ -42,8 +42,12 @@
 
 - Используется [Transforming Responses](./src/utils/disneyApi.js) :heavy_check_mark:
 
+### 2 уровень (необязательный)
+
+- Используются мемоизированные селекторы [selectorFavorite](./src/store/slice/user/userSlice.js)
+
 ### Storybook
 
 ---
 
--Подключен storybook и созданы несколько сторисов [UiButton](./src/components/ui/uiButton/uiButton.stories.js) [UiSpinner](./src/components/ui/)
+- Подключен storybook и созданы несколько сторисов [UiButton](./src/components/ui/uiButton/uiButton.stories.js) [UiSpinner](./src/components/ui/) :heavy_check_mark:
