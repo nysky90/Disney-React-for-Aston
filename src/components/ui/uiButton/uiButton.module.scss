@@ -18,6 +18,12 @@
 			color: #696969;
 		}
 	}
+	&:hover {
+		cursor: pointer;
+		background-color: #f3d083;
+		border: 2px solid #fc9465;
+		color: #363535;
+	}
 }
 .small {
 	font-size: 10px;

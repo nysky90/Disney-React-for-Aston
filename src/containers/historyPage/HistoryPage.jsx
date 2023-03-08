@@ -12,13 +12,14 @@ const HistoryPage = () => {
 		<div className={s.history}>
 			<h2>Character search history</h2>
 			<ul className={s.history__list}>
-				{history.map((item, i) => (
-					<li className={s.history__link} key={i}>
-						<Link to={`/character?name=${item}`}>
-							{i + 1}. request - {item}
-						</Link>
-					</li>
-				))}
+				{history &&
+					history.map((item, i) => (
+						<li className={s.history__link} key={i}>
+							<Link to={`/character?name=${item}`}>
+								{i + 1}. request - {item}
+							</Link>
+						</li>
+					))}
 			</ul>
 		</div>
 	);
