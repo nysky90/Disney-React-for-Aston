@@ -10,7 +10,6 @@ const UserBar = ({ email, logoutUser }) => {
 			<Link to={'/history'}>History</Link>
 			<Link to={'/favorite'}>Favorite</Link>
 			{email}
-
 			<UiButton onClick={logoutUser} text='Logout' theme={themeBtn.theme} />
 		</>
 	);

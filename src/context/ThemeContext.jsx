@@ -4,11 +4,13 @@ const ThemeContext = createContext(null);
 const body = document.querySelector('body');
 
 const ThemeProvider = ({ children }) => {
-	const [theme, setTheme] = useState('pink');
+	const [theme, setTheme] = useState(localStorage.getItem('theme'));
+
+	body.className = theme;
 
 	const change = (theme) => {
 		setTheme(theme);
-		body.className = theme;
+		localStorage.setItem('theme', theme);
 	};
 
 	return (

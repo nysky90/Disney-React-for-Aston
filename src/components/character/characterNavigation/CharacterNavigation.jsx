@@ -7,6 +7,7 @@ import s from './characterNavigation.module.scss';
 
 const CharacterNavigation = ({ counterPage, error }) => {
 	const themeBtn = useTheme();
+
 	return (
 		<div className={s.navigation}>
 			<h2>Character's</h2>

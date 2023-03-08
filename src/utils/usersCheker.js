@@ -8,6 +8,7 @@ const setUsersData = (place, data) => {
 
 const setLocalData = () => {
 	getUsersData() || setUsersData('usersData', []);
+	localStorage.getItem('theme') || localStorage.setItem('theme', 'girls');
 };
 
 export const getLoggedUser = () => {
@@ -63,7 +64,6 @@ export const registerUser = (userData) => {
 	if (!checkEmail) {
 		oldLocalStorage.push(userData);
 		setUsersData('usersData', oldLocalStorage);
-		console.log(checkEmail);
 		return true;
 	}
 };

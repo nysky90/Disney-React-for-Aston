@@ -1,5 +1,5 @@
 import { useGetCharacterByIdQuery } from '../../../utils';
-import { ChatacterCard } from '../chatacterCard/ChatacterCard';
+import { ChatacterCard } from '../../';
 
 const CharacterById = ({ id }) => {
 	const { data } = useGetCharacterByIdQuery(id);
