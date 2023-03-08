@@ -36,14 +36,16 @@ export const userControlMiddleware = (store) => (next) => (action) => {
 				user.favorite = [...favoriteData];
 				store.dispatch(setLogged('true'));
 				return next(action);
+			} else {
+				return false;
 			}
-			break;
 		case registration.type:
 			if (registerUser(action.payload)) {
 				store.dispatch(login(action.payload));
 				return next(action);
+			} else {
+				return false;
 			}
-			break;
 		case saveHistory.type:
 			if (!checkDoubleData(action.payload, 'history')) {
 				saveInLocalStorage(action.payload, 'history');

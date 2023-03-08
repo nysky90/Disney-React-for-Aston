@@ -3,8 +3,10 @@ import { useDispatch } from 'react-redux';
 import { useInput } from '../../hooks/useValidateInput';
 import { login } from '../../store';
 import { CustomForm } from '../../components';
+import { useState } from 'react';
 
 const LoginPage = () => {
+	const [error, setError] = useState(false);
 	const email = useInput('', {
 		isEmpty: true,
 		minLength: 3,
@@ -26,7 +28,8 @@ const LoginPage = () => {
 			favorite: [],
 			history: [],
 		};
-		dispatch(login(userData));
+		setError(false);
+		dispatch(login(userData)) || setError(true);
 	};
 
 	return (
@@ -36,6 +39,7 @@ const LoginPage = () => {
 			handleSubmit={handleSubmit}
 			title='Login'
 			btnText='Enter'
+			isError={error}
 		/>
 	);
 };

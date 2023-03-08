@@ -1,19 +1,20 @@
 import PropTypes from 'prop-types';
 
+import { UiButton } from '../../';
+
 import s from '../forms.module.scss';
 
 //Prettier исправляет конструкцию (a&&b) && c убирая скобки, поэтмоу делаю через ?
 
 const CustomForm = (props) => {
-	const { email, password, handleSubmit, title, btnText } = props;
+	const { email, password, handleSubmit, title, btnText, isError } = props;
 
 	return (
 		<form className={s.form}>
 			<h2 className={s.form__title}>{title}</h2>
-			{email.isEmpty && email.isDirty && <div>Email is not correct</div>}
-			{email.emailError && email.isDirty && (
-				<div>Email must have @ and .reg</div>
-			)}
+			{email.isEmpty && email.isDirty && <h3>Email is not correct</h3>}
+			{email.emailError && email.isDirty && <h3>Email must have @ and .reg</h3>}
+			{isError && <h3>Something went wrong, try another email</h3>}
 			<input
 				className={s.form__input}
 				onChange={(e) => email.onChange(e)}
@@ -24,7 +25,7 @@ const CustomForm = (props) => {
 				required
 			/>
 			{password.isEmpty && password.isDirty && (
-				<div>Password must be longer 3</div>
+				<h3>Password must be longer 3</h3>
 			)}
 			<input
 				className={s.form__input}
@@ -35,14 +36,13 @@ const CustomForm = (props) => {
 				name='password'
 				minLength={3}
 			/>
-			<button
+			<UiButton
 				type='submit'
 				disabled={!email.formValidation || !password.formValidation}
-				className={s.form__btn}
 				onClick={handleSubmit}
-			>
-				{btnText}
-			</button>
+				text={btnText}
+				size='big'
+			/>
 		</form>
 	);
 };

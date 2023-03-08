@@ -1,8 +1,11 @@
+import cn from 'classnames';
+
 import spinner from './img/spinner.svg';
+
 import s from './uiSpinner.module.scss';
 
-const UiSpinner = () => {
-	return <img className={s.spinner} src={spinner} alt='spinner' />;
+const UiSpinner = ({ size = 'medium' }) => {
+	return <img className={cn(s.spinner, s[size])} src={spinner} alt='spinner' />;
 };
 
 export { UiSpinner };

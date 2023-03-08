@@ -6,10 +6,16 @@
 	padding: 0;
 	box-sizing: border-box;
 	color: $main-color;
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 400;
 }
-
+h2 {
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 20px;
+	font-size: 32px;
+	font-weight: 900;
+}
 ul,
 li,
 dl {

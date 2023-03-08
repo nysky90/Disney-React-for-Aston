@@ -26,7 +26,7 @@
 
 - Поиск не должен триггерить много запросов к серверу :heavy_check_mark:
 
-- Есть применение [lazy + Suspense](./src/containers/favoritePage/FavoritePage.jsx)
+- Есть применение [lazy + Suspense](./src/containers/favoritePage/FavoritePage.jsx) :heavy_check_mark:
 
 ### Redux
 
@@ -41,3 +41,9 @@
 - Используется [RTK Query](./src/utils/disneyApi.js) :heavy_check_mark:
 
 - Используется [Transforming Responses](./src/utils/disneyApi.js) :heavy_check_mark:
+
+### Storybook
+
+---
+
+-Подключен storybook и созданы несколько сторисов [UiButton](./src/components/ui/uiButton/uiButton.stories.js) [UiSpinner](./src/components/ui/)
