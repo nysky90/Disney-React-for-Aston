@@ -1,11 +1,11 @@
 import { createContext, useContext, useState } from 'react';
 
 const ThemeContext = createContext(null);
-const body = document.querySelector('body');
 
 const ThemeProvider = ({ children }) => {
 	const [theme, setTheme] = useState(localStorage.getItem('theme'));
 
+	const body = document.querySelector('body');
 	body.className = theme;
 
 	const change = (theme) => {

@@ -44,7 +44,7 @@
 
 ### 2 уровень (необязательный)
 
-- Используются мемоизированные селекторы [selectorFavorite](./src/store/slice/user/userSlice.js)
+- Используются мемоизированные селекторы [selectorFavorite](./src/store/slice/user/userSlice.js) :heavy_check_mark:
 
 ### Storybook
 
