@@ -44,6 +44,9 @@
 
 ### 2 уровень (необязательный)
 
+- Проведена оптимизация приложения. Для оптимизации использовал memo() [CharactersList](./src/components/character/charactersList/CharactersList.jsx)
+  и мемоизированные селекторы (указан ниже).
+
 - Используются мемоизированные селекторы [selectorFavorite](./src/store/slice/user/userSlice.js) :heavy_check_mark:
 
 ### Storybook

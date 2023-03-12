@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import s from './charactersList.module.scss';
 
-const CharactersList = ({ characters }) => {
+let CharactersList = memo(({ characters }) => {
 	return (
 		<ul className={s.list}>
 			{characters.map(({ name, id, imageUrl }) => (
@@ -16,7 +17,7 @@ const CharactersList = ({ characters }) => {
 			))}
 		</ul>
 	);
-};
+});
 
 CharactersList.propTypes = {
 	characters: PropTypes.arrayOf(
