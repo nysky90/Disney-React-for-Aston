@@ -57,6 +57,10 @@
 			)
 			1;
 	}
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 3px magenta;
+	}
 }
 
 .boys {
@@ -68,5 +72,9 @@
 		color: #7aceff;
 		background-color: #1e6a96;
 		border: 2px solid #7aceff;
+	}
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 3px #1e6a96;
 	}
 }

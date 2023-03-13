@@ -11,5 +11,9 @@
 		padding: 10px;
 		width: 200px;
 		border-radius: 10px;
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 0 3px rgb(246, 135, 250);
+		}
 	}
 }

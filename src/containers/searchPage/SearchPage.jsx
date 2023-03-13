@@ -32,6 +32,12 @@ const SearchPage = () => {
 		}
 	};
 
+	const handleKeyPress = (e) => {
+		if (e.key === 'Enter') {
+			handleHistory();
+		}
+	};
+
 	const clearInput = () => {
 		setInputValue('');
 		navigate(`/character`);
@@ -48,6 +54,7 @@ const SearchPage = () => {
 				onChange={(e) => {
 					setInputValue(e.target.value);
 				}}
+				onKeyDown={handleKeyPress}
 				autoFocus
 			/>
 			<div>
