@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 import { UserBar } from '../../';
-import { logout } from '../../../store/';
+import { logout } from '../../../store';
 import {
 	useEmailIsLogged,
 	useCheckIsLogged,

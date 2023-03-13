@@ -32,4 +32,8 @@ export const routesConfig = [
 		path: '/registration',
 		element: <SignInPage />,
 	},
+	{
+		path: '*',
+		element: <MainPage />,
+	},
 ];

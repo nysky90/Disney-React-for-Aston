@@ -22,10 +22,12 @@ const CharactersPage = () => {
 
 	return (
 		<>
+			<h2>Character's</h2>
 			<CharacterNavigation counterPage={counterPage} error={isError} />
 			{isLoading && <UiSpinner />}
 			{isError && <ErrorApi />}
 			{data && <CharactersList characters={data} />}
+			<CharacterNavigation counterPage={counterPage} error={isError} />
 		</>
 	);
 };

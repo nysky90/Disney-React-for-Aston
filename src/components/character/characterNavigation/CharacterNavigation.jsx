@@ -10,7 +10,6 @@ const CharacterNavigation = ({ counterPage, error }) => {
 
 	return (
 		<div className={s.navigation}>
-			<h2>Character's</h2>
 			<div>
 				<Link to={`/characters?page=${counterPage - 1}`} className={s.link}>
 					<UiButton

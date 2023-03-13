@@ -1,8 +1,10 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 
 export const disneyApi = createApi({
 	reducerPath: 'disneyApi',
-	baseQuery: fetchBaseQuery({ baseUrl: 'https://api.disneyapi.dev/' }),
+	baseQuery: retry(fetchBaseQuery({ baseUrl: 'https://api.disneyapi.dev/' }), {
+		maxRetries: 5,
+	}),
 	endpoints: (build) => ({
 		getCharacters: build.query({
 			query: (number = 1) => `characters?page=${number}`,
