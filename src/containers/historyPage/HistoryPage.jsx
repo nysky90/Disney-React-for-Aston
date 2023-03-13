@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 
 import { selectorHistory } from '../../store/slice/user/userSlice';
-import { useSelector } from 'react-redux';
+import { shallowEqual, useSelector } from 'react-redux';
 
 import s from './historyPage.module.scss';
 
 const HistoryPage = () => {
-	const history = useSelector(selectorHistory);
+	const history = useSelector(selectorHistory, shallowEqual);
 
 	return (
 		<div className={s.history}>

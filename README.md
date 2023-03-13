@@ -1,5 +1,7 @@
 # Disney app
 
+![](./public/images/Disney-Logo.jpg)
+
 ## 1 уровень (необходимый минимум)
 
 Реализованы Требования к функциональности, описанные в прикрепленном документе.
@@ -44,8 +46,9 @@
 
 ### 2 уровень (необязательный)
 
-- Проведена оптимизация приложения. Для оптимизации использовал memo() [CharactersList](./src/components/character/charactersList/CharactersList.jsx)
-  и мемоизированные селекторы (указан ниже).
+- Проведена оптимизация приложения. Для оптимизации использовал memo() [charactersList](./src/components/character/charactersList/CharactersList.jsx),
+  useSelector - shallowEqual [HistoryPage](./src/containers/historyPage/HistoryPage.jsx)
+  и мемоизированные селекторы (указан ниже). :heavy_check_mark:
 
 - Используются мемоизированные селекторы [selectorFavorite](./src/store/slice/user/userSlice.js) :heavy_check_mark:
 
